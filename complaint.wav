@@ -1,0 +1,15 @@
+from gtts import gTTS
+from pydub import AudioSegment
+
+# Complaint sentence to convert to speech
+complaint_text = "There is a baggage delay at Gate 5. Please resolve it urgently."
+
+# Convert text to speech and save as MP3
+tts = gTTS(complaint_text)
+tts.save("complaint.mp3")
+
+# Convert MP3 to WAV
+audio = AudioSegment.from_mp3("complaint.mp3")
+audio.export("complaint.wav", format="wav")
+
+print("Generated 'complaint.wav' successfully.")
